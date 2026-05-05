@@ -1,0 +1,109 @@
+/* Zera as margens padrão do navegador e define a fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo da página em um tom cinza bem claro para dar contraste à caixa branca */
+body {
+    background-color: #f4f6f9;
+}
+
+/* Flexbox para centralizar a caixa perfeitamente no meio da tela */
+.container-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* A "Caixa Branca" que você idealizou */
+.cadastro-box {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px; /* Evita que o formulário fique muito largo em telas grandes */
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+}
+
+.cadastro-box h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.cadastro-box p {
+    text-align: center;
+    color: #777777;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+/* Espaçamento entre os campos */
+.grupo-input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.grupo-input input {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+/* Efeito ao clicar no campo para digitar */
+.grupo-input input:focus {
+    outline: none;
+    border-color: #0056b3; 
+}
+
+/* Botão principal de cadastro */
+.btn-logar {
+    width: 100%;
+    background-color: #0056b3; /* Cor azul de destaque, pode mudar para a cor do seu projeto */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logar:hover {
+    background-color: #004494;
+}
+
+/* Seção do link para quem já tem conta */
+.link-cadastro {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555555;
+}
+
+.link-cadastro a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-cadastro a:hover {
+    text-decoration: underline;
+}

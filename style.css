@@ -1,0 +1,222 @@
+/* =========================================
+   1. RESET BÁSICO, FONTES E VARIÁVEIS
+   ========================================= */
+:root {
+    /* Paleta extraída da sua logo */
+    --cor-primaria: #3c2c70; /* Roxo escuro do texto */
+    --cor-destaque: #df1451; /* Magenta/Vermelho do detalhe */
+    --cor-fundo-escuro: #150f24; /* Um tom super escuro derivado do roxo para o fundo */
+    --cor-texto-claro: #ffffff;
+    --cor-texto-cinza: #b3b9c5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo-escuro); 
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   2. O CONTÊINER PRINCIPAL (HERO)
+   ========================================= */
+.principal {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    /* Overlay escurecido usando o tom roxo para não perder a identidade */
+    background-image: linear-gradient(rgba(21, 15, 36, 0.88), rgba(21, 15, 36, 0.88)), 
+                      url('https://play-lh.googleusercontent.com/pg_Coi2iEfSAY2ESxMadxNc6ILRrmvn2ZILlUdkRKAI74n4a1_WOkQ0AsNUIA5cHhaBO2xCLJrN1lSuAalZ0EA=w240-h480-rw');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =========================================
+   3. CABEÇALHO (HEADER)
+   ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 8%;
+    background: transparent;
+}
+
+.grupo_esquerda {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--cor-texto-claro);
+    letter-spacing: 1px;
+}
+
+.navbar {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    color: #cccccc;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: var(--cor-destaque);
+}
+
+.grupo_direita {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.grupo_direita a {
+    color: var(--cor-texto-claro);
+    font-weight: 600;
+}
+
+/* Estilizando o botão de Login (Ajuste o seletor se colocar um href específico) */
+.grupo_direita a:last-child {
+    background-color: var(--cor-destaque);
+    color: #ffffff;
+    padding: 10px 25px;
+    border-radius: 6px; /* Borda levemente mais arredondada para combinar com a logo */
+}
+
+.grupo_direita a:last-child:hover {
+    background-color: #c21146; /* Um tom ligeiramente mais escuro para o hover */
+    box-shadow: 0 0 15px rgba(223, 20, 81, 0.4);
+}
+
+/* =========================================
+   4. CONTEÚDO PRINCIPAL (TEXTOS E ESPAÇO)
+   ========================================= */
+.hero {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+}
+
+.esp_vazio {
+    flex: 1;
+}
+
+.texto_intro {
+    flex: 1;
+    max-width: 650px;
+}
+
+.texto_intro h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+/* Destacando a palavra com a cor magenta da logo */
+.texto_intro h1 span {
+    color: var(--cor-destaque);
+}
+
+.texto_intro p {
+    font-size: 1.15rem;
+    color: var(--cor-texto-cinza);
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+/* Botão Principal */
+.btn_comece_ja {
+    display: inline-block;
+    background-color: rgba(223, 20, 81, 0.1);
+    color: var(--cor-destaque);
+    padding: 16px 40px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 1px solid var(--cor-destaque);
+    box-shadow: 0 0 10px rgba(223, 20, 81, 0.2);
+}
+
+.btn_comece_ja:hover {
+    background-color: var(--cor-destaque);
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(223, 20, 81, 0.5);
+}
+
+/* =========================================
+   5. SEÇÃO DE EXPLICAÇÃO (SOBRE)
+   ========================================= */
+.sessao-explicacao {
+    background-color: #ffffff; /* Fundo branco para bater com o fundo da sua logo */
+    color: #1a1a1a;
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.container-explicacao {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container-explicacao h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--cor-primaria); /* Título usa o roxo principal da logo */
+}
+
+.container-explicacao p {
+    font-size: 1.2rem;
+    color: #555555;
+}
+
+/* =========================================
+   6. RESPONSIVIDADE (Telas menores/Celulares)
+   ========================================= */
+@media (max-width: 850px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    .grupo_esquerda {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .esp_vazio {
+        display: none; 
+    }
+    
+    .hero {
+        text-align: center;
+        padding-top: 40px;
+        justify-content: center;
+    }
+    
+    .texto_intro p {
+        margin: 0 auto 40px auto;
+    }
+
+    .texto_intro h1 {
+        font-size: 2.5rem;
+    }
+}
