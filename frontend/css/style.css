@@ -28,6 +28,10 @@ a {
     transition: all 0.3s ease;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* =========================================
    2. O CONTÊINER PRINCIPAL (HERO)
    ========================================= */
@@ -72,7 +76,7 @@ a {
     width: auto;
 }
 
-.logo span {
+.logo a {
     font-size: 24px;
     font-weight: 800;
     line-height: 1;

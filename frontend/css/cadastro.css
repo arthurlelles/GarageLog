@@ -11,6 +11,39 @@ body {
     background-color: #f4f6f9;
 }
 
+.header-simples {
+    padding: 30px 5%; 
+    width: 100%;
+    display: flex;
+    align-items: center; /* Alinha o botão e a logo na mesma altura */
+}
+
+/* Novo: Estilo do Botão Voltar */
+.btn-voltar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #555555;
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 40px; /* Empurra a logo para a direita, dando espaço */
+    transition: color 0.3s ease;
+}
+
+.btn-voltar:hover {
+    color: #0056b3; /* Cor azul para combinar com seus botões */
+}
+
+/* Novo: Efeito na setinha (SVG) */
+.btn-voltar svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-voltar:hover svg {
+    transform: translateX(-4px); /* Move a seta 4 pixels para a esquerda no hover */
+}
+
 /* Flexbox para centralizar a caixa perfeitamente no meio da tela */
 .container-principal {
     display: flex;
