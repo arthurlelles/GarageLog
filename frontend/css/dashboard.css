@@ -1,0 +1,175 @@
+/* =========================================
+   VARIÁVEIS E RESET BÁSICO
+   ========================================= */
+:root {
+    --cor-primaria: #3c2c70; 
+    --cor-destaque: #df1451; /* Magenta */
+    --cor-fundo-escuro: #150f24; 
+    --cor-caixa: #1f1635; /* Um roxo um pouco mais claro para as caixas/header */
+    --cor-texto-claro: #ffffff;
+    --cor-texto-cinza: #b3b9c5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo-escuro); 
+    color: var(--cor-texto-claro);
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================
+   CABEÇALHO (HEADER DO DASHBOARD)
+   ========================================= */
+.header-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cor-caixa);
+    padding: 15px 5%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Logo (Esquerda) */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 25%; /* Mantém as proporções da tela */
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+}
+
+.logo span {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Barra de Pesquisa (Centro) */
+.busca-container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-busca {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--cor-texto-claro);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-busca:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(223, 20, 81, 0.2);
+}
+
+/* Perfil do Usuário (Direita) */
+.perfil-usuario {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    width: 25%;
+}
+
+.nome-usuario {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--cor-texto-cinza);
+}
+
+.foto-usuario {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover;
+    border: 2px solid var(--cor-destaque);
+}
+
+/* =========================================
+   ÁREA DO DASHBOARD (MEIO)
+   ========================================= */
+.container-dashboard {
+    padding: 40px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cabecalho-secao {
+    margin-bottom: 30px;
+}
+
+.cabecalho-secao h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.cabecalho-secao p {
+    color: var(--cor-texto-cinza);
+    font-size: 15px;
+}
+
+/* Grid para alinhar os quadrados */
+.grid-cards {
+    display: grid;
+    /* Cria colunas automáticas que têm no mínimo 250px de largura */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* =========================================
+   O QUADRADO DE ADICIONAR REGISTRO
+   ========================================= */
+.card-adicionar {
+    background-color: rgba(223, 20, 81, 0.05); /* Fundo com 5% de magenta */
+    border: 2px dashed rgba(223, 20, 81, 0.5); /* Borda tracejada magenta */
+    border-radius: 12px;
+    height: 200px; /* Altura fixa para fazer um quadrado/retângulo perfeito */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--cor-destaque);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-adicionar:hover {
+    background-color: rgba(223, 20, 81, 0.15);
+    border-color: var(--cor-destaque);
+    transform: translateY(-5px); /* Efeito de "levantar" ao passar o mouse */
+}
+
+.icone-mais {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.card-adicionar span {
+    font-size: 16px;
+    font-weight: 600;
+}

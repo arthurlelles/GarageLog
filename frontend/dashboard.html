@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO DO DASHBOARD -->
+    <header class="header-dashboard">
+        
+        <!-- Esquerda: Logo -->
+        <div class="logo">
+            <img src="img/garageLog_logoBranca.png" alt="Logo GarageLog">
+            <span>GarageLog</span>
+        </div>
+
+        <!-- Centro: Barra de Pesquisa -->
+        <div class="busca-container">
+            <input type="text" placeholder="Buscar veículo ou serviço..." class="input-busca">
+        </div>
+
+        <!-- Direita: Foto e Nome do Usuário -->
+        <div class="perfil-usuario">
+            <span class="nome-usuario">Olá, Arthur</span>
+            <img src="https://ui-avatars.com/api/?name=Arthur&background=df1451&color=fff" alt="Foto do Usuário" class="foto-usuario">
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL (DASHBOARD) -->
+    <main class="container-dashboard">
+        
+        <div class="cabecalho-secao">
+            <h2>Visão Geral</h2>
+            <p>Gerencie sua frota e acompanhe o histórico de serviços.</p>
+        </div>
+
+        <div class="grid-cards">
+            
+            <!-- Quadrado de Adicionar (O Link que leva para a outra página) -->
+            <a href="adicionar.html" class="card-adicionar">
+                <div class="icone-mais">+</div>
+                <span>Adicionar Registro</span>
+            </a>
+
+            <!-- Exemplo de como os carros cadastrados vão ficar ao lado depois -->
+            <!-- Você vai gerar isso dinamicamente com o JavaScript/Node.js no futuro -->
+            <!--
+            <div class="card-veiculo">
+                <h3>Honda Civic LX</h3>
+                <p>Placa: ABC-1234</p>
+            </div>
+            -->
+
+        </div>
+
+    </main>
+
+</body>
+</html>
