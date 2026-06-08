@@ -8,29 +8,32 @@
     </head>
     <body>
 
-        <!-- HEADER -->
         <div class="header">
             <a href="index.html" class="logo">GarageLog</a>
         </div>
 
-        <!-- FORMULÁRIO -->
         <div class="form-container">
             <h2>Entrar</h2>
 
             <div class="form-group">
-                <label>E-mail</label>
-                <input type="text">
+                <label>Usuário</label>
+                <input type="text" id="usuario">
             </div>
 
             <div class="form-group">
                 <label>Senha</label>
-                <input type="password">
+                <input type="password" id="senha">
             </div>
 
-            <a href="garagem.html" class="btn">Entrar</a>
+            <button class="btn" onclick="entrar()">Entrar</button>
+
+            <div id="mensagem"></div>
+
+            <a href="garagem.html" id="link-garagem" class="btn" style="display: none;">Acessar minha garagem &rarr;</a>
 
             <p class="form-footer">Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
         </div>
 
+        <script src="js/login.js"></script>
     </body>
 </html>

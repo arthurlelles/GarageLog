@@ -8,62 +8,229 @@
     </head>
     <body>
 
-        <!-- HEADER -->
         <div class="header">
             <a href="index.html" class="logo">GarageLog</a>
             <nav class="nav">
-                <span>Olá, André</span>
+                <span>Olá, Usuário</span>
+                <a href="estatisticas.html">Estatísticas</a>
                 <a href="index.html">Sair</a>
             </nav>
         </div>
 
-        <!-- CARDS -->
         <div class="container">
             <div class="page-header">
                 <h2 class="page-title">Minha Garagem</h2>
-                <a href="cadastro-carro.html" class="btn btn-small">+ Adicionar Carro</a>
+                <button class="btn btn-small" onclick="mostrarFormCarro()">+ Adicionar Carro</button>
             </div>
 
-            <div class="cards">
+            <div class="form-inline" id="form-carro">
+                <h3 id="titulo-form-carro">Adicionar Carro</h3>
+                <div class="form-group">
+                    <label>Modelo</label>
+                    <input type="text" id="c-modelo">
+                </div>
+                <div class="form-group">
+                    <label>Ano</label>
+                    <input type="text" id="c-ano">
+                </div>
+                <div class="form-group">
+                    <label>Placa</label>
+                    <input type="text" id="c-placa">
+                </div>
+                <div class="form-group">
+                    <label>KM Atual</label>
+                    <input type="number" id="c-km">
+                </div>
+                <div class="form-group">
+                    <label>Próxima revisão (KM)</label>
+                    <input type="number" id="c-proxima">
+                </div>
+                <div class="form-group">
+                    <label>Valor FIPE (R$)</label>
+                    <input type="number" id="c-fipe">
+                </div>
+                <button class="btn" onclick="salvarCarro()">Salvar</button>
+                <button class="btn btn-outline" onclick="esconderFormCarro()">Cancelar</button>
+                <div id="mensagem-carro"></div>
+            </div>
 
-                <div class="card">
-                    <img src="img/e30.jpeg" width="200" height="130" alt="BMW M3 E30">
-                    <h3>BMW M3 E30</h3>
-                    <p>Ano: 1990</p>
-                    <p>Placa: ABC-1234</p>
-                    <p>KM: 85.000</p>
-                    <div class="card-actions">
-                        <a href="manutencoes.html" class="btn btn-small">Manutenções</a>
-                        <a href="#" class="btn btn-small btn-danger">Excluir</a>
+            <div class="cards" id="cards">
+
+                <div class="card" id="carro1">
+                    <div class="card-top">
+                        <img src="img/e30.jpeg" alt="BMW M3 E30">
+                        <div class="card-info" id="info1">
+                            <h3>BMW M3 E30</h3>
+                            <p>Ano: 1990</p>
+                            <p>Placa: ABC-1234</p>
+                            <p>KM: 85000</p>
+                            <p>Valor FIPE: R$ 120000</p>
+                            <p class="alerta-revisao" id="alerta1" style="display: none;"></p>
+                        </div>
+                    </div>
+                    <div class="card-actions" id="acoes1">
+                        <button class="btn btn-small" onclick="alternarManutencoes(1)">Manutenções</button>
+                        <button class="btn btn-small btn-outline" onclick="editarCarro(1)">Editar</button>
+                        <button class="btn btn-small btn-danger" onclick="pedirConfirmacao(1)">Excluir</button>
+                    </div>
+                    <div class="confirmacao" id="confirm1" style="display: none;">
+                        <p>Tem certeza que deseja excluir este carro?</p>
+                        <button class="btn btn-small btn-danger" onclick="confirmarExclusao(1)">Sim, excluir</button>
+                        <button class="btn btn-small btn-outline" onclick="cancelarExclusao(1)">Cancelar</button>
+                    </div>
+                    <div class="bloco-manutencoes" id="bloco1">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr><th>Data</th><th>Tipo</th><th>Descrição</th><th>KM</th><th>Valor</th><th>Ações</th></tr>
+                                </thead>
+                                <tbody id="corpo1">
+                                    <tr>
+                                        <td>10/01/2024</td><td>Revisão</td><td>Troca de óleo e filtro</td><td>80000</td><td data-valor="350">R$ 350</td>
+                                        <td><button class="btn btn-small btn-outline" onclick="editarManutencao(this,1)">Editar</button> <button class="btn btn-small btn-danger" onclick="excluirManutencao(this,1)">Excluir</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15/03/2024</td><td>Freios</td><td>Troca das pastilhas dianteiras</td><td>81500</td><td data-valor="620">R$ 620</td>
+                                        <td><button class="btn btn-small btn-outline" onclick="editarManutencao(this,1)">Editar</button> <button class="btn btn-small btn-danger" onclick="excluirManutencao(this,1)">Excluir</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>20/08/2024</td><td>Revisão</td><td>Troca de velas e correia dentada</td><td>85000</td><td data-valor="1200">R$ 1200</td>
+                                        <td><button class="btn btn-small btn-outline" onclick="editarManutencao(this,1)">Editar</button> <button class="btn btn-small btn-danger" onclick="excluirManutencao(this,1)">Excluir</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="total-box">Total gasto: <b id="total1">R$ 0</b></div>
+                        <button class="btn btn-small" onclick="mostrarFormManut(1)">+ Registrar Manutenção</button>
+                        <div class="form-manut" id="formmanut1">
+                            <h4 id="tituloman1">Registrar Manutenção</h4>
+                            <div class="form-group"><label>Data</label><input type="text" id="m-data1" placeholder="dd/mm/aaaa"></div>
+                            <div class="form-group"><label>Tipo</label><input type="text" id="m-tipo1"></div>
+                            <div class="form-group"><label>Descrição</label><input type="text" id="m-descricao1"></div>
+                            <div class="form-group"><label>KM</label><input type="text" id="m-km1"></div>
+                            <div class="form-group"><label>Valor (R$)</label><input type="number" id="m-valor1"></div>
+                            <button class="btn" onclick="salvarManutencao(1)">Salvar</button>
+                            <button class="btn btn-outline" onclick="esconderFormManut(1)">Cancelar</button>
+                            <div id="msgman1"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <img src="img/e36.jpeg" width="200" height="130" alt="BMW M3 E36">
-                    <h3>BMW M3 E36</h3>
-                    <p>Ano: 1997</p>
-                    <p>Placa: DEF-5678</p>
-                    <p>KM: 142.000</p>
-                    <div class="card-actions">
-                        <a href="manutencoes.html" class="btn btn-small">Manutenções</a>
-                        <a href="#" class="btn btn-small btn-danger">Excluir</a>
+                <div class="card" id="carro2">
+                    <div class="card-top">
+                        <img src="img/e36.jpeg" alt="BMW M3 E36">
+                        <div class="card-info" id="info2">
+                            <h3>BMW M3 E36</h3>
+                            <p>Ano: 1997</p>
+                            <p>Placa: DEF-5678</p>
+                            <p>KM: 142000</p>
+                            <p>Valor FIPE: R$ 90000</p>
+                            <p class="alerta-revisao" id="alerta2" style="display: none;"></p>
+                        </div>
+                    </div>
+                    <div class="card-actions" id="acoes2">
+                        <button class="btn btn-small" onclick="alternarManutencoes(2)">Manutenções</button>
+                        <button class="btn btn-small btn-outline" onclick="editarCarro(2)">Editar</button>
+                        <button class="btn btn-small btn-danger" onclick="pedirConfirmacao(2)">Excluir</button>
+                    </div>
+                    <div class="confirmacao" id="confirm2" style="display: none;">
+                        <p>Tem certeza que deseja excluir este carro?</p>
+                        <button class="btn btn-small btn-danger" onclick="confirmarExclusao(2)">Sim, excluir</button>
+                        <button class="btn btn-small btn-outline" onclick="cancelarExclusao(2)">Cancelar</button>
+                    </div>
+                    <div class="bloco-manutencoes" id="bloco2">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr><th>Data</th><th>Tipo</th><th>Descrição</th><th>KM</th><th>Valor</th><th>Ações</th></tr>
+                                </thead>
+                                <tbody id="corpo2">
+                                    <tr>
+                                        <td>12/02/2023</td><td>Revisão</td><td>Troca de óleo</td><td>138000</td><td data-valor="400">R$ 400</td>
+                                        <td><button class="btn btn-small btn-outline" onclick="editarManutencao(this,2)">Editar</button> <button class="btn btn-small btn-danger" onclick="excluirManutencao(this,2)">Excluir</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>03/01/2024</td><td>Pneus</td><td>Quatro pneus novos</td><td>141800</td><td data-valor="3200">R$ 3200</td>
+                                        <td><button class="btn btn-small btn-outline" onclick="editarManutencao(this,2)">Editar</button> <button class="btn btn-small btn-danger" onclick="excluirManutencao(this,2)">Excluir</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="total-box">Total gasto: <b id="total2">R$ 0</b></div>
+                        <button class="btn btn-small" onclick="mostrarFormManut(2)">+ Registrar Manutenção</button>
+                        <div class="form-manut" id="formmanut2">
+                            <h4 id="tituloman2">Registrar Manutenção</h4>
+                            <div class="form-group"><label>Data</label><input type="text" id="m-data2" placeholder="dd/mm/aaaa"></div>
+                            <div class="form-group"><label>Tipo</label><input type="text" id="m-tipo2"></div>
+                            <div class="form-group"><label>Descrição</label><input type="text" id="m-descricao2"></div>
+                            <div class="form-group"><label>KM</label><input type="text" id="m-km2"></div>
+                            <div class="form-group"><label>Valor (R$)</label><input type="number" id="m-valor2"></div>
+                            <button class="btn" onclick="salvarManutencao(2)">Salvar</button>
+                            <button class="btn btn-outline" onclick="esconderFormManut(2)">Cancelar</button>
+                            <div id="msgman2"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <img src="img/e46.jpeg" width="200" height="130" alt="BMW M3 E46">
-                    <h3>BMW M3 E46</h3>
-                    <p>Ano: 2005</p>
-                    <p>Placa: GHI-9012</p>
-                    <p>KM: 67.000</p>
-                    <div class="card-actions">
-                        <a href="manutencoes.html" class="btn btn-small">Manutenções</a>
-                        <a href="#" class="btn btn-small btn-danger">Excluir</a>
+                <div class="card" id="carro3">
+                    <div class="card-top">
+                        <img src="img/e46.jpeg" alt="BMW M3 E46">
+                        <div class="card-info" id="info3">
+                            <h3>BMW M3 E46</h3>
+                            <p>Ano: 2005</p>
+                            <p>Placa: GHI-9012</p>
+                            <p>KM: 67000</p>
+                            <p>Valor FIPE: R$ 150000</p>
+                            <p class="alerta-revisao" id="alerta3" style="display: none;"></p>
+                        </div>
+                    </div>
+                    <div class="card-actions" id="acoes3">
+                        <button class="btn btn-small" onclick="alternarManutencoes(3)">Manutenções</button>
+                        <button class="btn btn-small btn-outline" onclick="editarCarro(3)">Editar</button>
+                        <button class="btn btn-small btn-danger" onclick="pedirConfirmacao(3)">Excluir</button>
+                    </div>
+                    <div class="confirmacao" id="confirm3" style="display: none;">
+                        <p>Tem certeza que deseja excluir este carro?</p>
+                        <button class="btn btn-small btn-danger" onclick="confirmarExclusao(3)">Sim, excluir</button>
+                        <button class="btn btn-small btn-outline" onclick="cancelarExclusao(3)">Cancelar</button>
+                    </div>
+                    <div class="bloco-manutencoes" id="bloco3">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr><th>Data</th><th>Tipo</th><th>Descrição</th><th>KM</th><th>Valor</th><th>Ações</th></tr>
+                                </thead>
+                                <tbody id="corpo3">
+                                    <tr>
+                                        <td>05/05/2024</td><td>Revisão</td><td>Óleo e filtros</td><td>64000</td><td data-valor="500">R$ 500</td>
+                                        <td><button class="btn btn-small btn-outline" onclick="editarManutencao(this,3)">Editar</button> <button class="btn btn-small btn-danger" onclick="excluirManutencao(this,3)">Excluir</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>18/09/2024</td><td>Suspensão</td><td>Troca dos amortecedores</td><td>66200</td><td data-valor="1800">R$ 1800</td>
+                                        <td><button class="btn btn-small btn-outline" onclick="editarManutencao(this,3)">Editar</button> <button class="btn btn-small btn-danger" onclick="excluirManutencao(this,3)">Excluir</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="total-box">Total gasto: <b id="total3">R$ 0</b></div>
+                        <button class="btn btn-small" onclick="mostrarFormManut(3)">+ Registrar Manutenção</button>
+                        <div class="form-manut" id="formmanut3">
+                            <h4 id="tituloman3">Registrar Manutenção</h4>
+                            <div class="form-group"><label>Data</label><input type="text" id="m-data3" placeholder="dd/mm/aaaa"></div>
+                            <div class="form-group"><label>Tipo</label><input type="text" id="m-tipo3"></div>
+                            <div class="form-group"><label>Descrição</label><input type="text" id="m-descricao3"></div>
+                            <div class="form-group"><label>KM</label><input type="text" id="m-km3"></div>
+                            <div class="form-group"><label>Valor (R$)</label><input type="number" id="m-valor3"></div>
+                            <button class="btn" onclick="salvarManutencao(3)">Salvar</button>
+                            <button class="btn btn-outline" onclick="esconderFormManut(3)">Cancelar</button>
+                            <div id="msgman3"></div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
 
+        <script src="js/garagem.js"></script>
     </body>
 </html>

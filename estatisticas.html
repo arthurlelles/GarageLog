@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="img/favpng_e4d9513455ed0e2b7a1973206c502229.png" type="image/png">
+        <title>GarageLog - Estatísticas</title>
+        <link rel="stylesheet" href="css/estilo.css" type="text/css">
+    </head>
+    <body>
+
+        <div class="header">
+            <a href="index.html" class="logo">GarageLog</a>
+            <nav class="nav">
+                <span>Olá, Usuário</span>
+                <a href="garagem.html">Minha Garagem</a>
+                <a href="index.html">Sair</a>
+            </nav>
+        </div>
+
+        <div class="container">
+            <a href="garagem.html" class="back-link">← Voltar para a Garagem</a>
+
+            <div class="page-header">
+                <h2 class="page-title">Estatísticas da Garagem</h2>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Carros na garagem</h3>
+                    <div class="stat-valor" id="stat-contador">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total gasto em manutenções</h3>
+                    <div class="stat-valor" id="stat-total">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>KM totais rodados</h3>
+                    <div class="stat-valor" id="stat-km">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Valor total da garagem (FIPE)</h3>
+                    <div class="stat-valor" id="stat-fipe">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Carro que mais gastou</h3>
+                    <div class="stat-valor" id="stat-maior-gasto">-</div>
+                    <div class="stat-detalhe" id="stat-maior-gasto-det"></div>
+                </div>
+                <div class="stat-card">
+                    <h3>Carro com mais manutenções</h3>
+                    <div class="stat-valor" id="stat-mais-manut">-</div>
+                    <div class="stat-detalhe" id="stat-mais-manut-det"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/estatisticas.js"></script>
+    </body>
+</html>

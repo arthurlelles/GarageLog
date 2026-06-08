@@ -5,6 +5,8 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #222;
 }
 
 /* HEADER */
@@ -12,49 +14,67 @@ body {
 .header {
     background-color: #1a3a5c;
     color: white;
-    padding: 12px 20px;
+    padding: 14px 24px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px #888888;
 }
 
 .logo {
     color: white;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .nav a {
     color: white;
     margin-left: 16px;
+    text-decoration: none;
 }
 
 .nav span {
     color: white;
+    margin-right: 8px;
 }
 
 /* HERO */
 
 .hero {
+    position: relative;
     text-align: center;
     padding: 100px 20px;
     min-height: 100vh;
-    background-image: url("../img/garage.jpeg");
-    background-size: cover;
-    background-position: center;
+    background-color: #1a3a5c;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
 .hero h1 {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 16px;
     color: white;
 }
 
 .hero p {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 30px;
     color: white;
 }
@@ -63,11 +83,15 @@ body {
 
 .btn {
     display: inline-block;
-    padding: 8px 16px;
+    padding: 9px 18px;
     background-color: #1a3a5c;
     color: white;
     text-decoration: none;
     margin: 4px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
 }
 
 .btn-outline {
@@ -78,7 +102,7 @@ body {
 
 .btn-small {
     font-size: 13px;
-    padding: 5px 10px;
+    padding: 6px 12px;
 }
 
 .btn-danger {
@@ -88,12 +112,17 @@ body {
 /* FORMULÁRIOS */
 
 .form-container {
-    width: 320px;
-    margin: 40px auto;
+    width: 340px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #cccccc;
 }
 
 .form-container h2 {
     margin-bottom: 20px;
+    color: #1a3a5c;
 }
 
 .form-group {
@@ -103,24 +132,58 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 4px;
+    font-size: 14px;
 }
 
 .form-group input {
     display: block;
     width: 100%;
-    padding: 6px;
+    padding: 8px;
     border: 1px solid #999;
+    border-radius: 6px;
 }
 
 .form-footer {
-    margin-top: 12px;
+    margin-top: 14px;
     font-size: 14px;
+}
+
+/* CONFIRMAÇÃO DE EXCLUSÃO */
+
+.confirmacao {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.confirmacao p {
+    margin-bottom: 6px;
+}
+
+/* MENSAGENS DE VALIDAÇÃO */
+
+.mensagem {
+    margin-top: 14px;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.mensagem-erro {
+    background-color: #fdecea;
+    color: #c0392b;
+    border: 1px solid #c0392b;
+}
+
+.mensagem-ok {
+    background-color: #eafaf1;
+    color: #1e7e45;
+    border: 1px solid #1e7e45;
 }
 
 /* PÁGINA */
 
 .container {
-    padding: 30px 20px;
+    padding: 30px 24px;
 }
 
 .page-header {
@@ -130,30 +193,143 @@ body {
     margin-bottom: 20px;
 }
 
+.page-title {
+    color: #1a3a5c;
+}
+
+/* FORMULÁRIO EMBUTIDO (oculto por padrão) */
+
+.form-inline {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #cccccc;
+    margin-bottom: 24px;
+}
+
+.form-inline h3 {
+    color: #1a3a5c;
+    margin-bottom: 14px;
+}
+
 /* CARDS */
 
 .cards {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .card {
-    border: 1px solid #999;
+    background-color: white;
+    border-radius: 10px;
     padding: 16px;
-    width: 200px;
+    box-shadow: 0 2px 8px #cccccc;
+}
+
+.card-top {
+    display: flex;
+    gap: 16px;
+    align-items: center;
 }
 
 .card img {
     display: block;
+    width: 200px;
+    height: 130px;
+    border-radius: 6px;
+}
+
+.card h3 {
+    color: #1a3a5c;
+    margin-bottom: 8px;
+}
+
+/* ALERTA DE REVISÃO */
+
+.alerta-revisao {
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    background-color: #fff3cd;
+    color: #8a6d3b;
+    border: 1px solid #e0c068;
+}
+
+/* BLOCO DE MANUTENÇÕES (dentro de cada carro) */
+
+.bloco-manutencoes {
+    display: none;
+    margin-top: 16px;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+}
+
+.form-manut {
+    display: none;
+    background-color: #f5f7fa;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 14px;
+}
+
+.form-manut h4 {
+    color: #1a3a5c;
+    margin-bottom: 12px;
+}
+
+/* ESTATÍSTICAS */
+
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px #cccccc;
+    width: 260px;
+}
+
+.stat-card h3 {
+    color: #1a3a5c;
+    font-size: 15px;
     margin-bottom: 10px;
 }
 
+.stat-valor {
+    font-size: 26px;
+    color: #1a3a5c;
+    font-weight: bold;
+}
+
+.stat-detalhe {
+    font-size: 14px;
+    color: #555555;
+    margin-top: 4px;
+}
+
+.card p {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
 .card-actions {
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 /* TABELA */
+
+.table-wrapper {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #cccccc;
+}
 
 table {
     width: 100%;
@@ -161,9 +337,10 @@ table {
 }
 
 th, td {
-    border: 1px solid #999;
-    padding: 8px;
+    border: 1px solid #ddd;
+    padding: 10px;
     text-align: left;
+    font-size: 14px;
 }
 
 th {
@@ -171,9 +348,30 @@ th {
     color: white;
 }
 
+tr:nth-child(even) td {
+    background-color: #f5f7fa;
+}
+
+/* TOTAL GASTO */
+
+.total-box {
+    margin-top: 18px;
+    padding: 14px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #cccccc;
+    font-size: 16px;
+    color: #1a3a5c;
+}
+
+.total-box b {
+    font-size: 20px;
+}
+
 /* LINK VOLTAR */
 
 .back-link {
     display: inline-block;
     margin-bottom: 16px;
+    color: #1a3a5c;
 }

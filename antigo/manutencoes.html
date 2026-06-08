@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="img/favpng_e4d9513455ed0e2b7a1973206c502229.png" type="image/png">
+        <title>GarageLog - Manutenções</title>
+        <link rel="stylesheet" href="css/estilo.css" type="text/css">
+    </head>
+    <body>
+
+        <!-- HEADER -->
+        <div class="header">
+            <a href="index.html" class="logo">GarageLog</a>
+            <nav class="nav">
+                <span>Olá, Usuário</span>
+                <a href="index.html">Sair</a>
+            </nav>
+        </div>
+
+        <!-- TABELA -->
+        <div class="container">
+            <a href="garagem.html" class="back-link">← Voltar para a Garagem</a>
+
+            <div class="page-header">
+                <h2 class="page-title">BMW M3 E30 — Manutenções</h2>
+                <button class="btn btn-small" onclick="mostrarFormulario()">+ Registrar Manutenção</button>
+            </div>
+
+            <!-- FORMULÁRIO EMBUTIDO (oculto até clicar em Registrar Manutenção) -->
+            <div class="form-inline" id="form-manutencao">
+                <h3>Registrar Manutenção</h3>
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="text" id="data" placeholder="dd/mm/aaaa">
+                </div>
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <input type="text" id="tipo">
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <input type="text" id="descricao">
+                </div>
+                <div class="form-group">
+                    <label>KM</label>
+                    <input type="text" id="km">
+                </div>
+                <div class="form-group">
+                    <label>Valor (R$)</label>
+                    <input type="number" id="valor" placeholder="Ex.: 350">
+                </div>
+                <button class="btn" onclick="adicionarManutencao()">Salvar</button>
+                <button class="btn btn-outline" onclick="esconderFormulario()">Cancelar</button>
+                <div id="mensagem"></div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Tipo</th>
+                            <th>Descrição</th>
+                            <th>KM</th>
+                            <th>Valor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-tabela">
+                        <tr>
+                            <td>10/01/2024</td>
+                            <td>Revisão</td>
+                            <td>Troca de óleo e filtro</td>
+                            <td>80.000</td>
+                            <td data-valor="350">R$ 350,00</td>
+                            <td><button class="btn btn-small btn-danger" onclick="excluirManutencao(this)">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>15/03/2024</td>
+                            <td>Freios</td>
+                            <td>Troca das pastilhas dianteiras</td>
+                            <td>81.500</td>
+                            <td data-valor="620">R$ 620,00</td>
+                            <td><button class="btn btn-small btn-danger" onclick="excluirManutencao(this)">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>02/06/2024</td>
+                            <td>Suspensão</td>
+                            <td>Alinhamento e balanceamento</td>
+                            <td>83.200</td>
+                            <td data-valor="180">R$ 180,00</td>
+                            <td><button class="btn btn-small btn-danger" onclick="excluirManutencao(this)">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>20/08/2024</td>
+                            <td>Revisão</td>
+                            <td>Troca de velas e correia dentada</td>
+                            <td>85.000</td>
+                            <td data-valor="1200">R$ 1.200,00</td>
+                            <td><button class="btn btn-small btn-danger" onclick="excluirManutencao(this)">Excluir</button></td>
+                        </tr>
+                        <tr>
+                            <td>05/11/2024</td>
+                            <td>Elétrica</td>
+                            <td>Troca da bateria</td>
+                            <td>85.800</td>
+                            <td data-valor="420">R$ 420,00</td>
+                            <td><button class="btn btn-small btn-danger" onclick="excluirManutencao(this)">Excluir</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TOTAL GASTO (calculado com laço de repetição - Aulas 08 e 09) -->
+            <div class="total-box">
+                Total gasto em manutenções: <strong id="total">R$ 0,00</strong>
+            </div>
+        </div>
+
+        <script src="js/manutencoes.js"></script>
+    </body>
+</html>
